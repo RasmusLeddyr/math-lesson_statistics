@@ -1,0 +1,26 @@
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: rgb(198, 198, 198);
+  max-width: 100%;
+}
+.stats div {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(219, 219, 219);
+  gap: 16px;
+  max-width: 100%;
+}
+.stats div p {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.stats div input {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
