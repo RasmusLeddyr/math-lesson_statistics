@@ -1,28 +1,41 @@
 // Function to update the frequency-sum values based on input values
 function update() {
-  const frequencyDivs = document.querySelectorAll(".stats div");
-  let Sum = 0;
+  const Divs = document.querySelectorAll(".stats div");
+  let SumHyp = 0;
 
-  frequencyDivs.forEach((div) => {
-    const frequencyInput = div.querySelector(".frequency");
-    const sumElement = div.querySelector(".frequency-sum");
+  Divs.forEach((div) => {
+    const HypElement = div.querySelector(".hyppighed");
+    const SumHypElement = div.querySelector(".summeret-hyppighed");
 
-    // Ensure both frequency input and sum element exist
-    if (frequencyInput && sumElement) {
-      const frequencyValue = parseFloat(frequencyInput.value);
+    if (HypElement && SumHypElement) {
+      const Hyp = parseFloat(HypElement.value);
+      if (!isNaN(Hyp)) {
+        SumHyp += Hyp;
+        SumHypElement.textContent = SumHyp;
+      }
+    }
+  });
 
-      // Check if frequencyValue is a valid number (not NaN)
-      if (!isNaN(frequencyValue)) {
-        Sum += frequencyValue; // Add the current frequency to the accumulated Sum
-        sumElement.textContent = Sum; // Update the sum display for this div
+  let SumHypNew = 0;
+  Divs.forEach((div) => {
+    const HypElement = div.querySelector(".hyppighed");
+    const FrekElement = div.querySelector(".frekvens");
+    const SumFrekElement = div.querySelector(".summeret-frekvens");
+
+    if (HypElement && FrekElement) {
+      const Hyp = parseFloat(HypElement.value);
+      if (!isNaN(Hyp)) {
+        SumHypNew += Hyp;
+        FrekElement.textContent = (Hyp / SumHyp) * 100 + "%";
+        SumFrekElement.textContent = (SumHypNew / SumHyp) * 100 + "%";
       }
     }
   });
 }
 
 // Listen for input changes to update values dynamically
-const frequencyInputs = document.querySelectorAll(".stats .frequency");
-frequencyInputs.forEach((input) => {
+const HypInputs = document.querySelectorAll(".stats .hyppighed");
+HypInputs.forEach((input) => {
   input.addEventListener("input", update);
 });
 
