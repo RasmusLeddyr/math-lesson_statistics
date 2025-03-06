@@ -1,3 +1,5 @@
+/* STATS */
+
 .stats {
   display: flex;
   flex-direction: column;
@@ -13,14 +15,61 @@
   max-width: 100%;
 }
 .stats div p {
-  width: 100%;
+  width: 64px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
 .stats div input {
-  width: 100%;
+  width: 64px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+}
+
+/* BAR GRAPH */
+.bar-graph {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+  position: relative;
+  width: 100%;
+}
+
+.bars {
+  display: flex;
+  gap: 8px;
+  flex-grow: 1;
+  align-items: end;
+}
+
+.bars div {
+  width: 20%;
+  background-color: #4caf50;
+  position: relative;
+  bottom: 0;
+}
+
+.y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  margin-left: 10px;
+  text-align: right;
+  margin-right: 16px;
+}
+
+.y-axis p {
+  margin: 0;
+  position: relative;
+}
+.y-axis p::after {
+  content: "";
+  position: absolute;
+  /* Adjust so the line appears at the center of the text */
+  width: 512px; /* This will be overridden by the line’s width */
+  height: 1px; /* Creates a thin line */
+  background-color: black; /* The color of the line */
+  opacity: 0.5; /* Align the line with the middle of the text */
 }
