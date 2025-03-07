@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  margin: 0%;
+}
+
 /* STATS */
 
 .stats {
@@ -6,6 +12,7 @@
   gap: 16px;
   background-color: rgb(191, 191, 191);
   max-width: 100%;
+  margin: 8px;
 }
 .stats div {
   display: flex;
@@ -31,7 +38,7 @@
 
 .graphs {
   display: flex;
-  padding: 16px;
+  padding: 8px;
 }
 
 .bar-graph {
@@ -88,7 +95,6 @@
   position: relative;
   top: -8px;
   margin-right: 16px;
-  background-color: aqua;
 }
 
 .y-axis p {
@@ -99,7 +105,7 @@
 .y-axis p::after {
   content: "";
   position: absolute;
-  top: 50%;
+  top: calc(50% - 2px);
   width: calc(512px - 100% - 10px);
   height: 2px;
   opacity: 0.25;

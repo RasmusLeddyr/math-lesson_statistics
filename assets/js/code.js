@@ -19,7 +19,7 @@ function update() {
 
   let SumHypNew = 0;
 
-  // Update "Frekvens", "Summeret Frekvens" & bar graph
+  // Update "Frekvens" & "Summeret Frekvens"
   Divs.forEach((div) => {
     const HypElement = div.querySelector(".hyppighed");
     const FrekElement = div.querySelector(".frekvens");
@@ -36,6 +36,7 @@ function update() {
     }
   });
 
+  // Update frekvens bar graph
   const FrekBars = document.querySelector(".frek-bars");
   FrekBars.innerHTML = "";
   Divs.forEach((div) => {
@@ -49,6 +50,7 @@ function update() {
     }
   });
 
+  // Update summeret frekvens bar graph
   const SumBars = document.querySelector(".sum-bars");
   SumBars.innerHTML = "";
   Divs.forEach((div) => {
