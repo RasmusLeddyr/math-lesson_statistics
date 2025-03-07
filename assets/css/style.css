@@ -4,13 +4,13 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  background-color: rgb(198, 198, 198);
+  background-color: rgb(191, 191, 191);
   max-width: 100%;
 }
 .stats div {
   display: flex;
   flex-direction: row;
-  background-color: rgb(219, 219, 219);
+  background-color: rgb(223, 223, 223);
   gap: 16px;
   max-width: 100%;
 }
@@ -27,27 +27,55 @@
   text-align: center;
 }
 
-/* BAR GRAPH */
+/* BAR GRAPHS */
+
+.graphs {
+  display: flex;
+  padding: 16px;
+}
+
 .bar-graph {
   display: flex;
   justify-content: space-between;
   margin-top: 32px;
   position: relative;
-  width: 100%;
+  width: 512px;
+  background-color: rgb(223, 223, 223);
+  padding-top: 48px;
+  margin-right: auto;
+}
+
+.frek-graph::before {
+  content: "Frekvens";
+}
+.sum-graph::before {
+  content: "Summeret Frekvens";
+}
+.bar-graph::before {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-size: 12px;
 }
 
 .bars {
   display: flex;
-  gap: 8px;
+  gap: 16px;
   flex-grow: 1;
   align-items: end;
 }
+.sum-bars {
+  gap: 0;
+}
 
 .bars div {
-  width: 20%;
-  background-color: #4caf50;
-  position: relative;
-  bottom: 0;
+  width: 100%;
+  background-color: rgb(63, 127, 191);
+  z-index: 1;
+  text-align: center;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
 }
 
 .y-axis {
@@ -57,19 +85,28 @@
   height: 100%;
   margin-left: 10px;
   text-align: right;
+  position: relative;
+  top: -8px;
   margin-right: 16px;
+  background-color: aqua;
 }
 
 .y-axis p {
   margin: 0;
   position: relative;
+  height: 16px;
 }
 .y-axis p::after {
   content: "";
   position: absolute;
-  /* Adjust so the line appears at the center of the text */
-  width: 512px; /* This will be overridden by the line’s width */
-  height: 1px; /* Creates a thin line */
-  background-color: black; /* The color of the line */
-  opacity: 0.5; /* Align the line with the middle of the text */
+  top: 50%;
+  width: calc(512px - 100% - 10px);
+  height: 2px;
+  opacity: 0.25;
+}
+.y-axis p:nth-child(even)::after {
+  background-color: rgb(31, 127, 31);
+}
+.y-axis p:nth-child(odd)::after {
+  background-color: rgb(127, 31, 31);
 }

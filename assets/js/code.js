@@ -19,7 +19,7 @@ function update() {
 
   let SumHypNew = 0;
 
-  // Update "Frekvens" & "Summeret Frekvens"
+  // Update "Frekvens", "Summeret Frekvens" & bar graph
   Divs.forEach((div) => {
     const HypElement = div.querySelector(".hyppighed");
     const FrekElement = div.querySelector(".frekvens");
@@ -36,29 +36,38 @@ function update() {
     }
   });
 
-  // Update the bar graph
-  const bars = document.querySelector(".bars");
-  bars.innerHTML = ""; // Clear existing bars
-
+  const FrekBars = document.querySelector(".frek-bars");
+  FrekBars.innerHTML = "";
   Divs.forEach((div) => {
     const FrekElement = div.querySelector(".frekvens");
-    const bar = document.createElement("div");
-
+    const Observation = div.querySelector(".observation");
+    const Bar = document.createElement("div");
     if (FrekElement) {
-      const sumFrek = parseFloat(FrekElement.textContent.replace("%", ""));
-      if (!isNaN(sumFrek)) {
-        bar.style.height = sumFrek + "%"; // Set height based on Summeret Frekvens
-        bars.appendChild(bar);
-      }
+      Bar.style.height = FrekElement.textContent;
+      FrekBars.appendChild(Bar);
+      Bar.textContent = Observation.textContent;
+    }
+  });
+
+  const SumBars = document.querySelector(".sum-bars");
+  SumBars.innerHTML = "";
+  Divs.forEach((div) => {
+    const SumFrekElement = div.querySelector(".summeret-frekvens");
+    const Observation = div.querySelector(".observation");
+    const Bar = document.createElement("div");
+    if (SumFrekElement) {
+      Bar.style.height = SumFrekElement.textContent;
+      SumBars.appendChild(Bar);
+      Bar.textContent = Observation.textContent;
     }
   });
 }
 
-// Listen for input changes to update values dynamically
+// Update on input change
 const HypInputs = document.querySelectorAll(".stats .hyppighed");
 HypInputs.forEach((input) => {
   input.addEventListener("input", update);
 });
 
-// Initial update when the page loads
+// Update when the page loads
 update();
