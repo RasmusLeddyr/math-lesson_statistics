@@ -50,6 +50,7 @@
   background-color: rgb(223, 223, 223);
   padding-top: 48px;
   margin-right: auto;
+  margin-left: auto;
 }
 
 .frek-graph::before {
